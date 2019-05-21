@@ -1,0 +1,13 @@
+INDEX VERSION 1.131+/home/mack/apcs/.metadata/.plugins/org.eclipse.jdt.core
+1031665376.index
+2522663020.index
+2821597000.index
+904108176.index
+1046496409.index
+3982535681.index
+2116058183.index
+872124293.index
+121668099.index
+3245002012.index
+2266724170.index
+3502300261.index

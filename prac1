@@ -1,0 +1,230 @@
+1a.
+
+public class RandomStringChooser
+{
+	private List<String> arr;
+
+	public RandomStringChooser(String[] _arr)
+	{
+		arr = new ArrayList<String>(Arrays.asList(_arr));
+	}
+	
+	public String getNext()
+	{
+		if (arr.size() == 0) { return "NONE"; }
+		Random random = new Random();
+		String randpick = arr.get(random.nextInt(arr.size()));
+		arr.remove(randpick);
+		return randpick;
+	}
+}
+
+1b.
+
+public class RandomLetterChooser extends RandomStringChooser
+{
+	private List<String> arr;
+	
+	public RandomLetterChooser(String word)
+	{
+		super(getSingleLetters(word));
+	}
+}
+
+2a.
+
+public LogMessage
+{
+	private String machineId;
+	private String description;
+
+	public LogMessage(String message)
+	{
+		machineId = message.split(":")[0];
+		machineId = message.split(":")[1];
+	}
+
+2b.
+	
+	public boolean containsWord(String keyword)
+	{
+		String[] words = description.split(" ");
+		for (String word : words)
+		{
+			if (word.equals(keyword)) {return true;}
+		}
+		return false;
+	}
+}
+
+2c.
+
+public class SystemLog
+{
+	private List<LogMessage> messageList;
+	
+	public List<LogMessage> removeMessages(String keyword)
+	{
+		List<LogMessage> bads = new ArrayList<LogMessage>();
+		for (LogMessage msg : messageList)
+		{
+			if msg.containsWord(keyword)
+			{
+				bads.add(msg); messageList.remove(msg);
+			}
+		}
+		return bads;
+	}
+}
+
+3a/b.
+
+public class Crossword
+{
+	private Square[][] puzzle;
+	
+	public Crossword(boolean[][] blackSquares)
+	{
+		puzzle = new Square[blackSquares.length][blackSquares[0].length];
+	}
+
+	public boolean toBeLabeled(int r, int c, boolean[][] blackSquares)
+	{
+		if (blackSquares[r][c]) { return false; }
+		if (c == 0 || r == 0) { return true; }
+		if (!blackSquares[r+1][c] || !blackSquares[r][c-1]) { return false; }
+ 	}
+}
+
+5a.
+
+public class DiverseArray
+{
+	public static int arraySum(int[] arr)
+	{
+		int sum = 0;
+		for (int num : arr)
+		{
+			sum += num;
+		}
+		return sum;	
+	}
+
+	public static int[] rowSums(int[][] arr2D)
+	{
+		int[] sums = new int[arr2D[0].length]; // length or size?
+		int count = 0;
+		for (int[] rowarr : arr2D)
+		{
+			sums[count] = arraySum(rowarr);
+			count++;
+		}
+		return sums;
+	}
+
+	public static boolean isDiverse(int[][] arr2D)
+	{
+		int[] sums = rowSums(arr2D);
+		Arrays.sort(sums);
+		for (int i = 0; i < sums.length-1; i++)
+		{
+			if (sums[i]==sums[i+1]) {return false;}
+		}
+		return true;
+	}
+}
+
+8a.
+
+public static String scrambleWord(String word)
+{
+	List<String> arr = new ArrayList<String>(Arrays.asList(word.split(",")));
+	for (int i = 0; i < arr.size(); i++)
+	{
+		if (arr.get(i).equals("a") && !arr.get(i+1).equals("a"))
+		{
+			String first = arr.get(i);
+			arr.set(i, arr.get(i+1));
+			arr.set(i+1, first);
+		}
+	}
+
+	return String.join("",arr);
+}
+
+8b.
+
+public static void scrambleOrRemove(List<String> wordList)
+{
+	for (String word : wordList)
+	{
+		if (scrambleWord(word).equals(word)) {wordList.remove(word);}
+		else {wordList.set(wordList.indexOf(word), scrambleWord(word));}
+	}
+}
+
+9.
+
+public class Trio implements MenuItem
+{
+	String name;
+	double price;
+
+	public Trio(MenuItem sandwich, MenuItem salad, MenuItem drink)
+	{
+		name = sandwich.getName() + "/" + salad.getName() + "/" + drink.getName() + " Trio";
+		price = sandwich.getPrice() + salad.getPrice() + drink.getPrice();	
+	}
+}
+
+11a.
+
+private int getIndexForFit(NumberTile tile)
+{
+	for (int i = 0; i < board.size()-1; i++)
+	{
+		if (board.get(i).getRight() == tile.getLeft() && board.get(i+1).getLeft() == tile.getRight()) {return i;}
+	}
+	return -1;
+}
+
+11b.
+
+public boolean insertTile(NumberTile tile)
+{
+	if (board.size() == 0) {board.add(tile); return true;}
+	int rotcount = 0;
+	while (rotcount < 4)
+	{
+		if (getIndexForFit(tile) != -1) {board.add(tile, getIndexForFit(tile)); return true;}
+		tile.rotate();
+	}
+	return false;
+}
+
+12a.
+
+public Reservation requestRoom(String guestName)
+{
+	for (int i = 0; i < rooms.length; i++)
+	{
+		if (rooms[i] == null)
+		{
+			rooms[i] = new Reservation(guestName, i); return rooms[i];
+		}
+	}
+	return null;
+}
+
+12b.
+
+public Reservation cancelAndReassign(Reservation res)
+{
+	rooms[res.getRoomNumber()] = null;
+	if (waitList.size() == 0) {return null;}
+
+	Reservation newRes = new Reservation(res.getName(), res.getRoomNumber());
+	waitList.remove(0);
+	rooms[res.getRoomNumber()] = newRes;
+	return newRes;
+}

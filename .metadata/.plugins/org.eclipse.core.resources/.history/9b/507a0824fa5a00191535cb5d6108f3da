@@ -1,0 +1,16 @@
+package userarray;
+
+public class UserArray {
+	
+	Scanner sc = new Scanner(System.in);
+	
+	public String getArrType()
+	{
+		Syste
+	}
+	
+	public static void main(String[] args) {
+		
+	}
+
+}

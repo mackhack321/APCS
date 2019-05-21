@@ -1,0 +1,12 @@
+import java.util.List;
+
+public class Musician extends Human {
+	private List<Song> songs;
+	private String genre;
+	
+	public Musician(String name, String gender, int age)
+	{
+		super(name, gender, age);
+	}
+	
+}

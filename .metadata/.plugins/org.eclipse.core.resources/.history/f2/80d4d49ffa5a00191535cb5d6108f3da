@@ -1,0 +1,20 @@
+package userarray;
+
+import java.util.Scanner;
+
+public class UserArray {
+	
+	private static Scanner sc = new Scanner(System.in);
+	private static int[] arr;	
+	
+	public static void makeArray()
+	{
+		System.out.print("Enter array size :: ");
+		arr = int[sc.nextInt()];
+	}
+	
+	public static void main(String[] args) {
+		
+	}
+
+}

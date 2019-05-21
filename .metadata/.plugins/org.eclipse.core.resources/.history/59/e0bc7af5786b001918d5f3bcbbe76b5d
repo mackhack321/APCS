@@ -1,0 +1,8 @@
+
+public class Musician extends Human {
+
+	public Musician(String name, String gender, int age) {
+		super(name, gender, age);
+	}
+	
+}

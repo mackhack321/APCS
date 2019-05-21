@@ -1,0 +1,197 @@
+# vi: ft=java
+
+1. 
+
+public static int[] getCubeTosses(NumberCube cube, int numTosses)
+{
+	int[] tosses = new int[numTosses];
+	for (int i = 0; i < numTosses; i++)
+	{
+		tosses[i] = cube.toss();
+	}
+	return tosses;
+}
+
+public static int getLongestRun(int[] values)
+{
+	int highestindex = -1;
+	int count = 0;
+	for (int i = 0; i < values.length - 1; i++)
+	{
+		if (values[i]==values[i+1])
+		{
+			if (i>highestindex && count==0) {highestindex=i;}
+			count++
+		}
+		else {count = 0;}
+	}
+	return highestindex;
+}
+
+2.
+
+public boolean isLevelTrailSegment(int start, int end)
+{
+	// 'markers' is an arr. arr[index] = elevation
+	int min = max = 0;
+	for (int elv : markers)
+	{
+		if (elv < min) {min = elv;}
+		else if (elv > max) {max = elv;}
+	}
+	return max-min >= 10;
+}
+
+public boolean isDifficult()
+{
+	int badcount = 0;
+	for (int i = 0; i < markers.length-1; i++)
+	{
+		int diff = markers[i]-markers[i+1];
+		if (diff >= 30 || diff <= -30) {badcount++;}
+	}
+	return badcount >= 3;
+}
+
+3.
+
+public class APLine
+{
+	private int a; private int b; private int c;
+
+	public APLine(int _a, int _b, int _c)
+	{
+		a = _a; b = _b; c = _c;
+	}
+
+	public double getSlope()
+	{
+		return (-a*1.0)/b;
+	}
+
+	public boolean isOnLine(int x, int y)
+	{
+		return (a*x)+(b*y)+c == 0;
+	}
+}
+
+4.
+
+public class Cat extends Pet
+{
+	public Cat(String name)
+	{
+		super(name);
+	}
+
+	public String speak()
+	{
+		return "meow";
+	}
+}
+
+public class Dog extends Pet
+{
+	private String dogsound;
+
+	public Dog(String name)
+	{
+		super(name);
+		dogsound = "woof";
+	}
+
+	public String speak()
+	{
+		return dogsound;
+	}
+}
+
+public class LoudDog extends Dog
+{
+	private String dogsound;
+	
+	public LoudDog(String name)
+	{
+		super(name); // also inits dogsound, I think
+	}
+
+	public String speak()
+	{
+		return dogsound + " " + dogsound;
+	}
+}
+
+// method allSpeak in class Kennel which has arrlist petList
+
+public void allSpeak()
+{
+	for (Pet pet : petList)
+	{
+		System.out.println(pet.getName() + " says: " + pet.speak());
+	}
+}
+
+5.
+
+public double getScore(ArrayList<String> key)
+{
+	double score = 0.0;
+	for (int i = 0; i < answers.length; i++)
+	{
+		if (answers[i].equals("?")) {continue;}
+		else if (answers[i].equals(key[i])) {score+=1.0;}
+		else {score-=0.25;}
+	}
+	return score;
+}
+
+public String highestScoringStudent(ArrayList<String> key)
+{
+	double highscore = 0.0;
+	String highname = "";
+	for (StudentAnswerSheet sheet : sheets)
+	{
+		if (sheet.getScore(key) > highscore)
+		{
+			highscore = sheet.getScore(key);
+			highname = sheet.getName();
+		}
+	}
+	return highname;
+}
+
+6.
+
+public class SubstringChecker implements Checker
+{
+	String sub;
+	public SubstringChecker(String sub)
+	{
+		this.sub = sub;
+	}
+
+	public boolean accept(String text)
+	{
+		return sub.contains(text);
+	}
+}
+
+public class AndChecker implements Checker
+{
+	Checker c1; Checker c2;
+	public AndChecker(Checker c1, Checker c2)
+	{
+		this.c1 = c1; this.c2 = c2;
+	}
+
+	public boolean accept(String text)
+	{
+		return c1.accept(text) && c2.accept(text);
+	}
+}
+
+Checker aChecker = new SubstringChecker("artichokes");
+Checker kChecker = new SubstringChecker("kale");
+Checker yummyChecker;
+Checker andChecker = new AndChecker(aChecker, kChecker);
+Checker notChecker = new NotChecker(andChecker);

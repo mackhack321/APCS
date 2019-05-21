@@ -1,0 +1,15 @@
+import java.util.List;
+import java.util.ArrayList;
+
+public class Musician extends Human {
+	private List<Song> songs;
+	private String genre;
+	
+	public Musician(String name, String gender, int age, String genre)
+	{
+		super(name, gender, age, genre);
+		songs = new ArrayList<Song>();
+		genre =
+	}
+	
+}

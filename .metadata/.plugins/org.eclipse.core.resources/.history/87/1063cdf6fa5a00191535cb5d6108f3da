@@ -1,0 +1,39 @@
+package userarray;
+
+import java.util.Scanner;
+
+public class UserArray {
+	
+	private static Scanner sc = new Scanner(System.in);
+	private static int[] arr;	
+	
+	public static void makeArray()
+	{
+		System.out.print("Enter array size :: ");
+		arr = new int[sc.nextInt()];
+	}
+	
+	public static String getContents() {
+		String ans = "";
+		for (int i = 0; i < arr.length; i++)
+		{
+			ans += arr[i] + ", ";
+		}
+		return ans;
+	}
+	
+	public static void populate() {
+		for (int i = 0; i < arr.length; i++)
+		{
+			System.out.print("Enter integer for index " + i + " :: ");
+			arr[i] = sc.nextInt();
+		}
+	}
+	
+	public static void main(String[] args) {
+		makeArray();
+		populate();
+		getContents();
+	}
+
+}

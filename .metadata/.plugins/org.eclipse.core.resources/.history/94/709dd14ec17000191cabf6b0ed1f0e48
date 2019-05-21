@@ -1,0 +1,15 @@
+package charmod;
+
+public class CharMod {
+
+	public char newChar(char a, char b)
+	{
+		return (Character.getNumericValue(a) + Character.getNumericValue(b)) % 127;
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

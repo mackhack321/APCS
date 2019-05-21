@@ -1,0 +1,14 @@
+package userarray;
+
+public class UserArray {
+	
+	public String getArrType()
+	{
+		
+	}
+	
+	public static void main(String[] args) {
+		
+	}
+
+}

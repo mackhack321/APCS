@@ -1,0 +1,19 @@
+package userarray;
+
+import java.util.Scanner;
+
+public class UserArray {
+	
+	private static Scanner sc = new Scanner(System.in);
+	
+	public static String getArrType()
+	{
+		System.out.print("Would you like a string array or an integer array? (s/i) :: ");
+		return sc.next();
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(getArrType());
+	}
+
+}

@@ -1,0 +1,10 @@
+
+public class MusicPeopleRunner {
+
+	public static void main(String[] args) {
+		System.out.println("The user interface to this program is a paid content add-on that has yet to be released.");
+		System.out.println("This program will now run in demo mode.\n==========================");
+
+	}
+
+}

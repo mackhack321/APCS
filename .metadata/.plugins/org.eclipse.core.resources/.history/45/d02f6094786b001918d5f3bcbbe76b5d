@@ -1,0 +1,6 @@
+
+public abstract class Human {
+	private String name;
+	private String gender;
+	private 
+}

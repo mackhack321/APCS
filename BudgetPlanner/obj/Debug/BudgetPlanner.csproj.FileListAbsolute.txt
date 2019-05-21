@@ -1,0 +1,10 @@
+C:\Users\mlgpr\Desktop\APCS\BudgetPlanner\bin\Debug\BudgetPlanner.exe.config
+C:\Users\mlgpr\Desktop\APCS\BudgetPlanner\bin\Debug\BudgetPlanner.exe
+C:\Users\mlgpr\Desktop\APCS\BudgetPlanner\bin\Debug\BudgetPlanner.pdb
+C:\Users\mlgpr\Desktop\APCS\BudgetPlanner\obj\Debug\BudgetPlanner.csprojAssemblyReference.cache
+C:\Users\mlgpr\Desktop\APCS\BudgetPlanner\obj\Debug\BudgetPlanner.Properties.Resources.resources
+C:\Users\mlgpr\Desktop\APCS\BudgetPlanner\obj\Debug\BudgetPlanner.csproj.GenerateResource.cache
+C:\Users\mlgpr\Desktop\APCS\BudgetPlanner\obj\Debug\BudgetPlanner.csproj.CoreCompileInputs.cache
+C:\Users\mlgpr\Desktop\APCS\BudgetPlanner\obj\Debug\BudgetPlanner.exe
+C:\Users\mlgpr\Desktop\APCS\BudgetPlanner\obj\Debug\BudgetPlanner.pdb
+C:\Users\mlgpr\Desktop\APCS\BudgetPlanner\obj\Debug\BudgetPlanner.Form1.resources

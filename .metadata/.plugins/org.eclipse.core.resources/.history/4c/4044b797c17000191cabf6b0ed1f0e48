@@ -1,0 +1,17 @@
+package charmod;
+
+public class CharMod {
+
+	public char newChar(char a, char b)
+	{
+		char ans = (char) ((char)(Character.getNumericValue(a) + Character.getNumericValue(b)) % 127);
+		return ans;
+	}
+	
+	
+	public static void main(String[] args) {
+		System.out.println(newChar())
+
+	}
+
+}

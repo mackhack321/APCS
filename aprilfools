@@ -1,0 +1,185 @@
+# vi: ft=java
+
+1.
+
+public class Crossword
+{
+	private Square[][] puzzle;
+	
+	public Crossword(boolean[][] blackSquares)
+	{
+		puzzle = new Square[blackSquares.length][blackSquares[0].length];
+	}
+
+	public boolean toBeLabeled(int r, int c, boolean[][] blackSquares)
+	{
+		if (blackSquares[r][c]) { return false; }
+		if (c == 0 || r == 0) { return true; }
+		if (!blackSquares[r+1][c] || !blackSquares[r][c-1]) { return false; }
+ 	}
+}
+
+2. A
+3. B
+4. B
+5. B
+6. B
+7. E
+8. D
+
+9.
+
+public interface NumberGroup
+{
+	public boolean contains(int num);
+}
+
+public class Range implements NumberGroup
+{
+	int max;
+	int min;
+
+	public Range(int min, int max)
+	{
+		this.max = max;
+		this.min = min;
+	}
+
+	public boolean contains(int num)
+	{
+		return num >= min && num <= max;
+	}
+}
+
+public class MultipleGroups
+{
+	public boolean contains(int num)
+	{
+		for (NumberGroup g : groupList)
+		{
+			if (g.contains(num)) {return true;}
+		}
+		return false;
+	}	
+}
+
+10. A
+11.
+
+public class HiddenWord
+{
+	String secret;
+
+	public HiddenWord(String secret)
+	{
+		this.secret = secret;
+	}
+
+	public String getHint(String hint)
+	{
+		if (hint.equals(secret)) {return secret;}
+		String ans = "";
+		for (int i = 0; i < hint.length(); i++)
+		{
+			if (hint.charAt(i) == secret.charAt(i))
+			{
+				ans += hint.charAt(i);
+			}
+
+			else if (secret.contains(hint.charAt(i)))
+			{
+				ans += "+";
+			}
+			
+			else {ans += "*";}
+		}
+		return ans;
+	}
+}
+ 
+12. B
+13.
+
+public class DiverseArray
+{
+	public static int arraySum(int[] arr)
+	{
+		int sum = 0;
+		for (int num : arr)
+		{
+			sum += num;
+		}
+		return sum;	
+	}
+
+	public static int[] rowSums(int[][] arr2D)
+	{
+		int[] sums = new int[arr2D[0].length]; // length or size?
+		int count = 0;
+		for (int[] rowarr : arr2D)
+		{
+			sums[count] = arraySum(rowarr);
+			count++;
+		}
+		return sums;
+	}
+
+	public static boolean isDiverse(int[][] arr2D)
+	{
+		int[] sums = rowSums(arr2D);
+		Arrays.sort(sums);
+		for (int i = 0; i < sums.length-1; i++)
+		{
+			if (sums[i]==sums[i+1]) {return false;}
+		}
+		return true;
+	}
+}
+
+14. C
+15. D
+16. B
+17.
+
+public class SeatingChart
+{
+	private Student[][] seats;
+
+	public SeatingChart(List<Student> studentList, int rows, int cols)
+	{
+		int count = 0;
+		for (int c = 0; c < cols; c++)
+		{
+			for (int r = 0; r < rows; r++)
+			{
+				if (count > studentList.size())
+				{
+					seats[c][r] = null;
+				} else
+				{
+					seats[c][r] = studentList.get(count); count++;
+				}
+			}
+		}	
+	}
+
+	public int removeAbsentStudents(int allowedAbsences)
+	{
+		int removed = 0;
+		for (int r = 0; r < seats.length; r++)
+		{
+			for (int c = 0; c < seats[0].length; c++)
+			{
+				if (seats[r][c].getAbsenceCount() > allowedAbsences)
+				{
+					seats[r][c] = null; removed++;
+				}
+			}
+		}
+		return removed;
+	}
+}
+
+18. D
+19. C
+20. E

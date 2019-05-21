@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="/home/mack/apcs/inspirationalquote"/>
+		<item value="C:\Users\mlgpr\Desktop\APCS\Golfproj"/>
+		<item value="C:\Users\mlgpr\Desktop\APCS\set1bjack"/>
+		<item value="C:\Users\mlgpr\Desktop\APCS\2018_AP_CSA_FreeResponse"/>
+		<item value="C:\Users\mlgpr\Desktop\APCS\ArrayListLabs"/>
+		<item value="C:\Users\mlgpr\Desktop\APCS\sortsearch"/>
+		<item value="C:\Users\mlgpr\Desktop\APCS\arrayLabsCode"/>
+		<item value="C:\Users\mlgpr\Desktop\APCS\Chatbot"/>
+		<item value="C:\Users\mlgpr\Desktop\APCS\IfElse Labs"/>
+		<item value="C:\Users\mlgpr\Desktop\APCS\StringLabs"/>
+		<item value="C:\Users\mlgpr\Desktop\APCS\Stringsnotes"/>
+		<item value="C:\Users\mlgpr\Desktop\APCS\If Labs"/>
+		<item value="C:\Users\mlgpr\Desktop\APCS\Miscellaneous\Battleship"/>
+	</list>
+	<section name="NewWizardAction">
+		<item key="NewWizardSelectionPage.STORE_SELECTED_ID" value="org.eclipse.jdt.ui.wizards.JavaProjectWizard"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.jdt.ui.java"/>
+		</list>
+	</section>
+	<section name="SaveAsDialogSettings">
+		<item key="DIALOG_WIDTH" value="613"/>
+		<item key="DIALOG_FONT_NAME" value="1|Cantarell|11.0|0|GTK|1|"/>
+		<item key="DIALOG_HEIGHT" value="623"/>
+		<item key="DIALOG_X_ORIGIN" value="631"/>
+		<item key="DIALOG_Y_ORIGIN" value="100"/>
+	</section>
+</section>
